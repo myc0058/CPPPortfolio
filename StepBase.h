@@ -28,7 +28,7 @@ public:
 	std::function<void()> Operation;
 };
 
-//ÁÖÀÇ!!!! StepBase´Â StepManager¸¦ ÅëÇØ¼­¸¸ °´Ã¼¸¦ ¸¸µé¾î¾ß ÇÕ´Ï´Ù.
+//ì£¼ì˜!!!! StepBaseëŠ” StepManagerë¥¼ í†µí•´ì„œë§Œ ê°ì²´ë¥¼ ë§Œë“¤ì–´ì•¼ í•©ë‹ˆë‹¤.
 class StepBase
 {
 public:
@@ -131,7 +131,7 @@ public:
 	{
 		DWORD now = stSERVER_INFO.now;
 
-		//½ºÅÜÀÌ ¿Ï·áµÇ±â Àü¿¡ ½ÇÇàµÇ¾ß ÇÏ´Â ÇÔ¼öµéÀÌ ÀÖ´Ù¸é ½ÇÇàÇØÁØ´Ù.
+		//ìŠ¤í…ì´ ì™„ë£Œë˜ê¸° ì „ì— ì‹¤í–‰ë˜ì•¼ í•˜ëŠ” í•¨ìˆ˜ë“¤ì´ ìˆë‹¤ë©´ ì‹¤í–‰í•´ì¤€ë‹¤.
 		for (int i = 0; i < (int)startOperations.size(); i++)
 		{
 			auto & item = startOperations[i];
@@ -142,7 +142,7 @@ public:
 			}
 		}
 
-		//operation¿¡¼­ ½ºÅÜÀ» ²Ù¸é ¾ÈµÊ. ¾Æ·¡ ·çÆ¾Àº ½ÇÇàÇÏÁö ¾Ê´Â´Ù.
+		//operationì—ì„œ ìŠ¤í…ì„ ê¾¸ë©´ ì•ˆë¨. ì•„ë˜ ë£¨í‹´ì€ ì‹¤í–‰í•˜ì§€ ì•ŠëŠ”ë‹¤.
 		if (isCurrentStep == false)
 		{
 			//ASSERT(!"OPERATION IN StepBase CANNOT CHANGE STEP!!");
@@ -151,7 +151,7 @@ public:
 
 		if (stepTime != INFINITE_DWORD && now >= startTime + stepTime)
 		{
-			//Å¸ÀÓ¾Æ¿ô ÇÔ¼öµéÀÌ ÀÖ´Ù¸é ½ÇÇàÇØÁØ´Ù.
+			//íƒ€ì„ì•„ì›ƒ í•¨ìˆ˜ë“¤ì´ ìˆë‹¤ë©´ ì‹¤í–‰í•´ì¤€ë‹¤.
 			for (int i = 0; i < (int)timeoutOperations.size(); i++)
 			{
 				auto & item = timeoutOperations[i];
@@ -162,7 +162,7 @@ public:
 				}
 			}
 
-			//operation¿¡¼­ ½ºÅÜÀ» ²Ù¸é ¾ÈµÊ. ¾Æ·¡ ·çÆ¾Àº ½ÇÇàÇÏÁö ¾Ê´Â´Ù.
+			//operationì—ì„œ ìŠ¤í…ì„ ê¾¸ë©´ ì•ˆë¨. ì•„ë˜ ë£¨í‹´ì€ ì‹¤í–‰í•˜ì§€ ì•ŠëŠ”ë‹¤.
 			if (isCurrentStep == false)
 			{
 				//ASSERT(!"OPERATION IN StepBase CANNOT CHANGE STEP!!");
@@ -269,7 +269,7 @@ protected:
 	{
 		if (GetSendStepFlag() == SendStepFlag::BOTH || GetSendStepFlag() == SendStepFlag::ONLY_START)
 		{
-			Common_SessionRoomR_GameStep gameStep;
+			CommonR_GameStep gameStep;
 			gameStep.bySTEP = myStep;
 			if (clientTime == DWORD_MAX)
 				gameStep.nSTEPTIME = stepTime;
@@ -308,7 +308,7 @@ protected:
 			}
 		}
 
-		//operation¿¡¼­ ½ºÅÜÀ» ²Ù¸é ¾ÈµÊ. ¾Æ·¡ ·çÆ¾Àº ½ÇÇàÇÏÁö ¾Ê´Â´Ù.
+		//operationì—ì„œ ìŠ¤í…ì„ ê¾¸ë©´ ì•ˆë¨. ì•„ë˜ ë£¨í‹´ì€ ì‹¤í–‰í•˜ì§€ ì•ŠëŠ”ë‹¤.
 		if (isCurrentStep == false)
 		{
 			//ASSERT(!"OPERATION IN StepBase CANNOT CHANGE STEP!!");
@@ -317,7 +317,7 @@ protected:
 
 		if (GetSendStepFlag() == SendStepFlag::BOTH || GetSendStepFlag() == SendStepFlag::ONLY_FINISH)
 		{
-			Common_SessionRoomR_GameStep gameStep;
+			CommonR_GameStep gameStep;
 			gameStep.bySTEP = myStep;
 			if (clientTime == DWORD_MAX)
 				gameStep.nSTEPTIME = stepTime;

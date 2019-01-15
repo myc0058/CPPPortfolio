@@ -312,7 +312,7 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 		
-		/* ¼±ÀÌ ¹ŞÀÚ¸¶ÀÚ UÀÏ¶§ ( 3 ¹øµé)
+		/* ì„ ì´ ë°›ìë§ˆì Uì¼ë•Œ ( 3 ë²ˆë“¤)
 		int nNumber[playerCnt][ndivide_card] = {
 		{ 0, 13, 26, 2, 15, 28, 3, 16, 29 },
 		{ 18, 19, 21, 22, 31, 32, 45, 46, 49 }
@@ -382,7 +382,7 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 
-		/* ¼±ÀÌ ¹ŞÀÚ¸¶ÀÚ UÀÏ¶§ ( 2 ½ºÆ®·¹ÀÌÆ®, 1 ¹øµé 123 456 111)
+		/* ì„ ì´ ë°›ìë§ˆì Uì¼ë•Œ ( 2 ìŠ¤íŠ¸ë ˆì´íŠ¸, 1 ë²ˆë“¤ 123 456 111)
 		int nNumber[playerCnt][ndivide_card] = {
 		{ 0, 1, 2, 3, 4, 5, 13, 26, 39 },
 		{ 40, 41, 16, 17, 19, 20, 22, 23, 25 }
@@ -452,7 +452,7 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 
-		/* ¼±ÀÌ ¹ŞÀÚ¸¶ÀÚ UÀÏ¶§ ( Ä«µå°¡ °ãÄ¡´Â °æ¿ì - 2 ½ºÆ®·¹ÀÌÆ®, 1 ¹øµé, 222 345 345)
+		/* ì„ ì´ ë°›ìë§ˆì Uì¼ë•Œ ( ì¹´ë“œê°€ ê²¹ì¹˜ëŠ” ê²½ìš° - 2 ìŠ¤íŠ¸ë ˆì´íŠ¸, 1 ë²ˆë“¤, 222 345 345)
 		int nNumber[playerCnt][ndivide_card] = {
 		{ 1, 14, 27, 2, 3, 4, 28, 29, 30 },
 		{ 40, 41, 16, 17, 19, 20, 22, 23, 25 }
@@ -522,7 +522,7 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 
-		/* ¼±ÀÌ ¹ŞÀÚ¸¶ÀÚ UÀÏ¶§ ( Ä«µå°¡ °ãÄ¡´Â °æ¿ì - 1 ½ºÆ®·¹ÀÌÆ®, 2 ¹øµé, 345 444 666)
+		/* ì„ ì´ ë°›ìë§ˆì Uì¼ë•Œ ( ì¹´ë“œê°€ ê²¹ì¹˜ëŠ” ê²½ìš° - 1 ìŠ¤íŠ¸ë ˆì´íŠ¸, 2 ë²ˆë“¤, 345 444 666)
 		int nNumber[playerCnt][ndivide_card] = {
 		{ 2, 3, 4, 16, 29, 42, 5, 18, 31 },
 		{ 40, 41, 43, 17, 19, 20, 22, 23, 25 }
@@ -592,7 +592,7 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 
-		/* ¼±ÀÌ ¹ŞÀÚ¸¶ÀÚ UÀÏ¶§ ( Ä«µå°¡ °ãÄ¡°í Á¶Ä¿·Î ÇØ°á 34567 44 66 J)
+		/* ì„ ì´ ë°›ìë§ˆì Uì¼ë•Œ ( ì¹´ë“œê°€ ê²¹ì¹˜ê³  ì¡°ì»¤ë¡œ í•´ê²° 34567 44 66 J)
 		int nNumber[playerCnt][ndivide_card] = {
 		{ 2, 3, 4, 5, 6, 16, 29, 18, 31 },
 		{ 40, 41, 16, 17, 19, 20, 22, 23, 25 }
@@ -666,7 +666,7 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 
-		/* ¼±ÀÌ ¹ŞÀÚ¸¶ÀÚ UÀÏ¶§ ( Ä«µå°¡ °ãÄ¡°í Á¶Ä¿·Î ÇØ°á 1234 2 234 JJ)
+		/* ì„ ì´ ë°›ìë§ˆì Uì¼ë•Œ ( ì¹´ë“œê°€ ê²¹ì¹˜ê³  ì¡°ì»¤ë¡œ í•´ê²° 1234 2 234 JJ)
 		int nNumber[playerCnt][ndivide_card] = {
 		{ 0, 1, 2, 3, 14, 27, 28, 29, 52 },
 		{ 40, 41, 16, 17, 19, 20, 22, 23, 25 }
@@ -741,7 +741,7 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 
-		/* ¼±ÀÌ ¾Æ´Ñ »ç¶÷ÀÌ ÆûÇØ¼­ UÀÏ¶§
+		/* ì„ ì´ ì•„ë‹Œ ì‚¬ëŒì´ í¼í•´ì„œ Uì¼ë•Œ
 		int nNumber[playerCnt][ndivide_card] = {
 		{ 8,										14, 16, 17, 19, 20, 22, 23, 25 },
 		{ 0, 1, 2, 3, 4, 5, 6, 7,					10 }
@@ -847,7 +847,7 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 
-		/* ¼±ÀÌ ¾Æ´Ñ »ç¶÷ÀÌ ºÙÀÌ±â¸¦ µî·ÏÅÏ¿¡¼­ ¸ğµç Ä«µå¸¦ ÇÑ °æ¿ì U
+		/* ì„ ì´ ì•„ë‹Œ ì‚¬ëŒì´ ë¶™ì´ê¸°ë¥¼ ë“±ë¡í„´ì—ì„œ ëª¨ë“  ì¹´ë“œë¥¼ í•œ ê²½ìš° U
 		int nNumber[playerCnt][ndivide_card] = {
 		{ 1, 2, 3, 4, 5, 6,							13, 14, 16},
 		{ 26, 27, 28, 29, 30, 31, 0, 7, 8 }
@@ -952,7 +952,7 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 
-		/* ¼±ÀÌ ¾Æ´Ñ »ç¶÷ÀÌ ºÙÀÌ±â¸¦ µî·ÏÅÏ¿¡¼­ ¸ğµç Ä«µå¸¦ ÇÑ °æ¿ì U
+		/* ì„ ì´ ì•„ë‹Œ ì‚¬ëŒì´ ë¶™ì´ê¸°ë¥¼ ë“±ë¡í„´ì—ì„œ ëª¨ë“  ì¹´ë“œë¥¼ í•œ ê²½ìš° U
 		int nNumber[playerCnt][ndivide_card] = {
 		{ 1, 2, 3, 4, 17, 30,							13, 14, 16},
 		{ 26, 27, 28, 29, 30, 31, 32, 0, 43 }
@@ -1029,7 +1029,7 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 
-		/* Á¶Ä¿ µÎÀåÀ¸·Î ¶ç¾ö¶ç¾öÀÖ´Â ¼ıÀÚ U¸¸µé±â 2 4 666 2 4 JJ
+		/* ì¡°ì»¤ ë‘ì¥ìœ¼ë¡œ ë„ì—„ë„ì—„ìˆëŠ” ìˆ«ì Uë§Œë“¤ê¸° 2 4 666 2 4 JJ
 		int nNumber[playerCnt][ndivide_card] = {
 		{ 1, 3, 5, 18, 27, 29, 31, 52, 53 },
 		{ 26, 40, 28, 42, 30, 43, 0, 7,	40 }
@@ -1099,7 +1099,7 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 
-		/* Á¶Ä¿ µÎÀåÀ¸·Î ¶ç¾ö¶ç¾öÀÖ´Â ¼ıÀÚ U¸¸µé±â 2 4 666 678 J
+		/* ì¡°ì»¤ ë‘ì¥ìœ¼ë¡œ ë„ì—„ë„ì—„ìˆëŠ” ìˆ«ì Uë§Œë“¤ê¸° 2 4 666 678 J
 		int nNumber[playerCnt][ndivide_card] = {
 		{ 1, 3, 5, 18, 31, 44, 6, 7, 52 },
 		{ 26, 40, 28, 42, 30, 43, 0, 7,	40 }
@@ -1169,11 +1169,11 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 
-		/* Á¶Ä¿ ÇÑÀåÀÌ ²¸ÀÖ´Â ¹®Á¦¸¦ ÀÏÀ¸Å°´Â ÄÉÀÌ½º
+		/* ì¡°ì»¤ í•œì¥ì´ ê»´ìˆëŠ” ë¬¸ì œë¥¼ ì¼ìœ¼í‚¤ëŠ” ì¼€ì´ìŠ¤
 		C3, C4, C5
 		J(1,4), C5, C6,
 		H3, S4, D6,
-		D9, H10 (¹ö¸®±â)
+		D9, H10 (ë²„ë¦¬ê¸°)
 		*/
 		vtHandCards.push_back(new CCARD());
 		vtHandCards[vtHandCards.size() - 1]->clear();
@@ -1243,7 +1243,7 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 
-		/* ÆûÇÑÄ«µå°¡ ÀÖ°í Á¶Ä¿ 2ÀåÀÏ¶§ ¹®Á¦
+		/* í¼í•œì¹´ë“œê°€ ìˆê³  ì¡°ì»¤ 2ì¥ì¼ë•Œ ë¬¸ì œ
 		D9(drop), S9, J
 		S1, H1, J,
 		C2, C3, C4,C5
@@ -1317,7 +1317,7 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 
-		/* UÃ¼Å© ÇÏ¸é¼­ °á°ú¿¡ °°Àº ½ºÆ®·¹ÀÌÆ®Ä«µå°¡ 6Àå µé¾îÀÖ¾ú´ø ¹ö±×
+		/* Uì²´í¬ í•˜ë©´ì„œ ê²°ê³¼ì— ê°™ì€ ìŠ¤íŠ¸ë ˆì´íŠ¸ì¹´ë“œê°€ 6ì¥ ë“¤ì–´ìˆì—ˆë˜ ë²„ê·¸
 		S8, S9, Joker4(Drop)
 		S6, H6, C6(Drop),
 		D11, D12, Joker1(Drop),
@@ -1390,7 +1390,7 @@ private:
 		AutoResult autoResult;
 		std::vector<CCARD*> vtHandCards;
 
-		/* Á¶Ä¿ ¼¼ÀåÀ¸·Î ¶ç¾ö¶ç¾öÀÖ´Â ¼ıÀÚ U¸¸µé±â 2 4 6 6 3 5 JJJ
+		/* ì¡°ì»¤ ì„¸ì¥ìœ¼ë¡œ ë„ì—„ë„ì—„ìˆëŠ” ìˆ«ì Uë§Œë“¤ê¸° 2 4 6 6 3 5 JJJ
 		int nNumber[playerCnt][ndivide_card] = {
 		{ 1, 3, 5, 31, 28, 30, 52, 53, 54 },
 		{ 26, 40, 28, 42, 30, 43, 0, 7,	40 }
@@ -1511,7 +1511,7 @@ private:
 		AddCard(vtHandCards, 33, _HAND);
 		AddCard(vtHandCards, 45, _HAND);
 
-		//U°¡ ¾Æ´Ñµ¥ U¶ó°í ³ª¿À´Â ¹®Á¦¸¦ ¼öÁ¤ÇÏ±â À§ÇÑ Å×½ºÆ®
+		//Uê°€ ì•„ë‹Œë° Uë¼ê³  ë‚˜ì˜¤ëŠ” ë¬¸ì œë¥¼ ìˆ˜ì •í•˜ê¸° ìœ„í•œ í…ŒìŠ¤íŠ¸
 		bool result = autoPlay.Is_U(vtHandCards, NULL, autoResult);
 
 		for (int i = 0; i < (int)vtHandCards.size(); i++)
@@ -1545,7 +1545,7 @@ private:
 		AddCard(vtHandCards, 36, _HAND);
 		AddCard(vtHandCards, 53, _HAND);
 
-		//Á¶Ä¿ 2ÀåÀ» ½á¼­ UÀÎµ¥ U°¡ ¾Æ´Ï¶ó°í ³ª¿À´Â ¹ö±× ¼öÁ¤
+		//ì¡°ì»¤ 2ì¥ì„ ì¨ì„œ Uì¸ë° Uê°€ ì•„ë‹ˆë¼ê³  ë‚˜ì˜¤ëŠ” ë²„ê·¸ ìˆ˜ì •
 		bool result = autoPlay.Is_U(vtHandCards, NULL, autoResult);
 
 		result &= autoResult.RegStCards.size() == 6;
@@ -1587,7 +1587,7 @@ private:
 		AddCard(vtHandCards, 11, _HAND);
 		AddCard(vtHandCards, 52, _HAND);
 
-		//Á¶Ä¿ 2ÀåÀ» ½á¼­ UÀÎµ¥ U°¡ ¾Æ´Ï¶ó°í ³ª¿À´Â ¹ö±× ¼öÁ¤
+		//ì¡°ì»¤ 2ì¥ì„ ì¨ì„œ Uì¸ë° Uê°€ ì•„ë‹ˆë¼ê³  ë‚˜ì˜¤ëŠ” ë²„ê·¸ ìˆ˜ì •
 		bool result = autoPlay.Is_U(vtHandCards, NULL, autoResult);
 
 		result &= autoResult.RegStCards.size() == 6;
@@ -1629,7 +1629,7 @@ private:
 
 		AddCard(vtHandCards, 43, _HAND);
 
-		//Á¶Ä¿ 2ÀåÀ» ½á¼­ UÀÎµ¥ U°¡ ¾Æ´Ï¶ó°í ³ª¿À´Â ¹ö±× ¼öÁ¤
+		//ì¡°ì»¤ 2ì¥ì„ ì¨ì„œ Uì¸ë° Uê°€ ì•„ë‹ˆë¼ê³  ë‚˜ì˜¤ëŠ” ë²„ê·¸ ìˆ˜ì •
 		bool result = autoPlay.Is_U(vtHandCards, NULL, autoResult);
 
 		for (int i = 0; i < (int)vtHandCards.size(); i++)
@@ -1666,7 +1666,7 @@ private:
 
 		AddCard(vtHandCards, 52, _HAND);
 
-		//U°¡ µÇ¾ß ÇÔ
+		//Uê°€ ë˜ì•¼ í•¨
 		bool result = autoPlay.Is_U(vtHandCards, NULL, autoResult);
 
 		result &= autoResult.RegStCards.size() == 6;
@@ -1709,7 +1709,7 @@ private:
 
 		AddCard(vtHandCards, 19, _HAND);
 
-		//U°¡ µÇ¸é ¾ÈµÊ
+		//Uê°€ ë˜ë©´ ì•ˆë¨
 		bool result = autoPlay.Is_U(vtHandCards, NULL, autoResult);
 
 		for (int i = 0; i < (int)vtHandCards.size(); i++)

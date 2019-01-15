@@ -12,7 +12,7 @@ bool AutoResult::ToUPacket(Phom_SessionRoomR_Card_U & packet)
 	CardUtil::Copy(AttStCards, packet.vtATT_STR);
 	CardUtil::Copy(AttBnCards, packet.vtATT_BUN);
 	
-	//U°¡ µÆ´Ù¸é Àı´ë TrashCards°¡ 2Àå ÀÌ»óÀÌ¸é ¾ÈµÈ´Ù.
+	//Uê°€ ëë‹¤ë©´ ì ˆëŒ€ TrashCardsê°€ 2ì¥ ì´ìƒì´ë©´ ì•ˆëœë‹¤.
 	VERIFY(TrashCards.size() < 2);
 	
 	if (TrashCards.size() > 0)
@@ -104,7 +104,7 @@ DUPLI_CARD_SEQ Candidate::GetDuplicateCardSeqAndSaveJokerInfo(Candidate & target
 	std::vector<CCARD*> & jokerCards, JokerInfo * usedJokerInfo)
 {
 
-	//Áßº¹µÇ´Â Ä«µå´Â ÃÖ´ë°¡ ÇÑÀåÀÌ´Ù.
+	//ì¤‘ë³µë˜ëŠ” ì¹´ë“œëŠ” ìµœëŒ€ê°€ í•œì¥ì´ë‹¤.
 	if (FirstCard == target.FirstCard || SecondCard == target.FirstCard || ThirdCard == target.FirstCard)
 	{
 		if (jokerCards.size() > 0)
@@ -253,13 +253,13 @@ bool CandidateSet::CanRegisterAllWithJoker(std::vector<CCARD*> jokerCards)
 		return false;
 
 	/*
-		µÎ°³ÀÇ ÈÄº¸ÀÚ³¢¸® Ä«µå°¡ 2Àå ÀÌ»ó Áßº¹µÇ´Â °æ¿ì´Â ¾ø±â ¶§¹®¿¡ 2Àå ÀÌ»ó Áßº¹Àº °¡Á¤ÇÏÁö ¾Ê´Â´Ù.
-		Ä«µå ÇÑÀåÀÌ ¼¼°³ÀÇ ÈÄº¸ÀÚ¿¡ µ¿½Ã¿¡ Æ÷ÇÔµÉ¼ö ¾ø´Ù.
+		ë‘ê°œì˜ í›„ë³´ìë¼ë¦¬ ì¹´ë“œê°€ 2ì¥ ì´ìƒ ì¤‘ë³µë˜ëŠ” ê²½ìš°ëŠ” ì—†ê¸° ë•Œë¬¸ì— 2ì¥ ì´ìƒ ì¤‘ë³µì€ ê°€ì •í•˜ì§€ ì•ŠëŠ”ë‹¤.
+		ì¹´ë“œ í•œì¥ì´ ì„¸ê°œì˜ í›„ë³´ìì— ë™ì‹œì— í¬í•¨ë ìˆ˜ ì—†ë‹¤.
 	*/
 
-	//Áßº¹µÈ Ä«µåµéÀº Á¶Ä¿·Î ´ëÃ¼ ÇØÁØ´Ù.
+	//ì¤‘ë³µëœ ì¹´ë“œë“¤ì€ ì¡°ì»¤ë¡œ ëŒ€ì²´ í•´ì¤€ë‹¤.
 
-	//Á¶Ä¿°¡ ¸ğÀÚ¸£¸é ³ª¸ÓÁö Ä«µå´Â Attach¿ë ¸®½ºÆ®·Î ³Ö¾îÁØ´Ù.
+	//ì¡°ì»¤ê°€ ëª¨ìë¥´ë©´ ë‚˜ë¨¸ì§€ ì¹´ë“œëŠ” Attachìš© ë¦¬ìŠ¤íŠ¸ë¡œ ë„£ì–´ì¤€ë‹¤.
 	if (FirstRegCandidate.RegType != _REG_NONE && SecondRegCandidate.RegType != _REG_NONE)
 	{
 		AdjustJokerTwoCandidates(jokerCards, &FirstRegCandidate, &FirstJokerInfo, &SecondRegCandidate, &SecondJokerInfo);
@@ -275,13 +275,13 @@ bool CandidateSet::CanRegisterAllWithJoker(std::vector<CCARD*> jokerCards)
 		AdjustJokerTwoCandidates(jokerCards, &SecondRegCandidate, &SecondJokerInfo, &ThirdRegCandidate, &ThirdJokerInfo);
 	}
 
-	//Á¶Ä¿°¡ ÀÖ°í ³²Àº Ä«µå°¡ 2Àå ÀÌ»óÀÌ¸é ³²Àº Ä«µåµé·Î ½ºÆ®·¹ÀÌÆ®³ª ¹øµéÀÌ µÇ´ÂÁö È®ÀÎÇÑ´Ù.
+	//ì¡°ì»¤ê°€ ìˆê³  ë‚¨ì€ ì¹´ë“œê°€ 2ì¥ ì´ìƒì´ë©´ ë‚¨ì€ ì¹´ë“œë“¤ë¡œ ìŠ¤íŠ¸ë ˆì´íŠ¸ë‚˜ ë²ˆë“¤ì´ ë˜ëŠ”ì§€ í™•ì¸í•œë‹¤.
 	if (jokerCards.size() > 0 && remainCards.size() > 1)
 	{
 		std::vector<CCARD*> bundleCards;
 		std::vector<CCARD*> straightCards;
 
-		//Á¶Ä¿¸¦ »ç¿ëÇÏ¿© ½ºÆ®·¹ÀÌÆ®¸¦ ¸ğµÎ ÃßÃâÇÑ´Ù.
+		//ì¡°ì»¤ë¥¼ ì‚¬ìš©í•˜ì—¬ ìŠ¤íŠ¸ë ˆì´íŠ¸ë¥¼ ëª¨ë‘ ì¶”ì¶œí•œë‹¤.
 		CardUtil::SortType(remainCards);
 		for (int i = 0; i < (int)jokerCards.size();)
 		{
@@ -302,7 +302,7 @@ bool CandidateSet::CanRegisterAllWithJoker(std::vector<CCARD*> jokerCards)
 				i++;
 		}
 
-		//Á¶Ä¿¸¦ »ç¿ëÇÏ¿© ¹øµéÀ» ¸ğµÎ ÃßÃâÇÑ´Ù.
+		//ì¡°ì»¤ë¥¼ ì‚¬ìš©í•˜ì—¬ ë²ˆë“¤ì„ ëª¨ë‘ ì¶”ì¶œí•œë‹¤.
 		CardUtil::SortNo(remainCards);
 		for (int i = 0; i < (int)jokerCards.size();)
 		{
@@ -402,14 +402,14 @@ bool CandidateSet::CanRegisterAndAttachNineCards(CSTRAIGHT * regStraight, CBUNDL
 
 		for (int i = 0; i < (int)remainCards.size(); i++)
 		{
-			//ÆûÇØ¼­ ¹ŞÀº Ä«µå´Â ºÙÀÌ±â ÇÒ¼ö ¾ø´Ù.
+			//í¼í•´ì„œ ë°›ì€ ì¹´ë“œëŠ” ë¶™ì´ê¸° í• ìˆ˜ ì—†ë‹¤.
 			if (remainCards[i]->m_emCardPos == _DROP)
 				remainCardsFinally.push_back(remainCards[i]);
 			else
 				handCards.push_back(remainCards[i]);
 		}
 
-		//µî·ÏÀ» ÇÏÁö ¸øÇÏ¸é ºÙÀÌ±â¸¦ ÇÒ¼ö ¾ø´Ù.
+		//ë“±ë¡ì„ í•˜ì§€ ëª»í•˜ë©´ ë¶™ì´ê¸°ë¥¼ í• ìˆ˜ ì—†ë‹¤.
 		if (regedStrCards.size() + regedBunCards.size() > 0)
 		{
 			std::vector<CCARD*> attCards;
@@ -417,7 +417,7 @@ bool CandidateSet::CanRegisterAndAttachNineCards(CSTRAIGHT * regStraight, CBUNDL
 			regStraight->IsAttach(regedStrCards, handCards, attCards);
 			regAttCnt += attCards.size();
 
-			//ºÙÀÌ±âÇÑÄ«µå´Â ÀúÀåÇÏ°í ¹øµé ºÙÀÌ±â¸¦ À§ÇØ »èÁ¦ÇÑ´Ù.
+			//ë¶™ì´ê¸°í•œì¹´ë“œëŠ” ì €ì¥í•˜ê³  ë²ˆë“¤ ë¶™ì´ê¸°ë¥¼ ìœ„í•´ ì‚­ì œí•œë‹¤.
 			for (int i = 0; i < (int)attCards.size(); i++)
 			{
 				cardsForStrAttach.push_back(attCards[i]);
@@ -428,18 +428,18 @@ bool CandidateSet::CanRegisterAndAttachNineCards(CSTRAIGHT * regStraight, CBUNDL
 			regBundle->IsAttach(regedBunCards, handCards, attCards);
 			regAttCnt += attCards.size();
 
-			//ºÙÀÌ±âÇÑÄ«µå´Â ÀúÀåÇÏ°í ³²ÀºÄ«µå ÀúÀåÀ» À§ÇØ »èÁ¦ÇÑ´Ù.
+			//ë¶™ì´ê¸°í•œì¹´ë“œëŠ” ì €ì¥í•˜ê³  ë‚¨ì€ì¹´ë“œ ì €ì¥ì„ ìœ„í•´ ì‚­ì œí•œë‹¤.
 			for (int i = 0; i < (int)attCards.size(); i++)
 			{
 				cardsForBunAttach.push_back(attCards[i]);
 			}
 		}
 
-		//³²Àº Ä«µå´Â µû·Î ÀúÀåÇÑ´Ù.
+		//ë‚¨ì€ ì¹´ë“œëŠ” ë”°ë¡œ ì €ì¥í•œë‹¤.
 		for (int i = 0; i < (int)handCards.size(); i++)
 			remainCardsFinally.push_back(handCards[i]);
 
-		//³²Àº Ä«µå¿¡ ÆûÇØ¼­ ¹ŞÀº Ä«µå°¡ ÀÖÀ¸¸é ½ÇÆĞ
+		//ë‚¨ì€ ì¹´ë“œì— í¼í•´ì„œ ë°›ì€ ì¹´ë“œê°€ ìˆìœ¼ë©´ ì‹¤íŒ¨
 		for (int i = 0; i < (int)remainCardsFinally.size(); i++)
 			if (remainCardsFinally[i]->m_emCardPos == _DROP)
 				return false;
@@ -493,7 +493,7 @@ bool CandidateSet::ExistInCandidate(CCARD * card)
 
 void CandidateSet::ToAutoResult(AutoResult & autoResult)
 {
-	//Á¶Ä¿ÀÇ »ç¿ëÀ» È®Á¤ Áö¾îÁÜ
+	//ì¡°ì»¤ì˜ ì‚¬ìš©ì„ í™•ì • ì§€ì–´ì¤Œ
 	if (FirstJokerInfo.Position != JCP_NONE)
 	{
 		FirstJokerInfo.JokerCard->m_nJokerType = FirstJokerInfo.JokerType;
@@ -635,7 +635,7 @@ bool CandidateSet::AddUsedJokerCandidate(std::vector<CCARD*> & regCards, _emREG_
 	emptyCandidate->FirstCard = regCards[0];
 	emptyCandidate->SecondCard = regCards[1];
 
-	//¼¼¹øÂ°°¡ Á¶Ä¿ Ä«µåÀÓ
+	//ì„¸ë²ˆì§¸ê°€ ì¡°ì»¤ ì¹´ë“œì„
 	emptyCandidate->ThirdCard = regCards[2];
 
 	emptyJokerInfo->Position = JCP_THIRDCARD;
@@ -643,7 +643,7 @@ bool CandidateSet::AddUsedJokerCandidate(std::vector<CCARD*> & regCards, _emREG_
 	emptyJokerInfo->JokerNo = emptyCandidate->ThirdCard->m_nJokerNo;
 	emptyJokerInfo->JokerCard = emptyCandidate->ThirdCard;
 
-	//Ä«µå¿¡ ÀÖ´ø JokerÁ¤º¸´Â ¿ø·¡´ë·Î µ¹¸²
+	//ì¹´ë“œì— ìˆë˜ Jokerì •ë³´ëŠ” ì›ë˜ëŒ€ë¡œ ëŒë¦¼
 	emptyCandidate->ThirdCard->m_nJokerType = backupJokerType;
 	emptyCandidate->ThirdCard->m_nJokerNo = backupJokerNo;
 
@@ -666,7 +666,7 @@ void AUTO_PLAY::Clear()
 
 bool AUTO_PLAY::Is_U(std::vector<CCARD*> & myHandCards, CCARD *pDrop, AutoResult & autoResult)
 {
-	//´ë±â¿­¿¡ ÀÖ´Â Ä«µå¿Í ¾Æ´Ñ Ä«µå¸¦ ºĞ¸®ÇÑ´Ù.
+	//ëŒ€ê¸°ì—´ì— ìˆëŠ” ì¹´ë“œì™€ ì•„ë‹Œ ì¹´ë“œë¥¼ ë¶„ë¦¬í•œë‹¤.
 	std::vector<CCARD*> stanbyCards;
 	std::vector<_emREG_TYPE> stanbyCardsRegTypes;
 
@@ -676,15 +676,15 @@ bool AUTO_PLAY::Is_U(std::vector<CCARD*> & myHandCards, CCARD *pDrop, AutoResult
 		CCARD * secondCard = myHandCards[1];
 		CCARD * thirdCard = myHandCards[2];
 
-		//´ë±â¿­ Ä«µå°¡ ¸ÕÀú µé¾îÀÖ´Ù°í °¡Á¤ÇÔ (±×·¸°Ô ÄÚµùµÇ¾î ÀÖÀ½)
+		//ëŒ€ê¸°ì—´ ì¹´ë“œê°€ ë¨¼ì € ë“¤ì–´ìˆë‹¤ê³  ê°€ì •í•¨ (ê·¸ë ‡ê²Œ ì½”ë”©ë˜ì–´ ìˆìŒ)
 
-		//Ä«µå ¼¼ÀåÁß¿¡ ÇÑÀåÀÌ¶óµµ ¹ö¸°Ä«µå°¡ ÀÖ´Ù¸é ±×°Ç ´ë±â¿­ Ä«µåÀÌ´Ù.
+		//ì¹´ë“œ ì„¸ì¥ì¤‘ì— í•œì¥ì´ë¼ë„ ë²„ë¦°ì¹´ë“œê°€ ìˆë‹¤ë©´ ê·¸ê±´ ëŒ€ê¸°ì—´ ì¹´ë“œì´ë‹¤.
 		if (firstCard->m_emCardPos != _DROP && secondCard->m_emCardPos != _DROP && thirdCard->m_emCardPos != _DROP)
 			break;
 
 		_emREG_TYPE regType = CardUtil::CheckStraightOrBundle(firstCard, secondCard, thirdCard);
 		
-		//¾Æ·¡ Ã³·³ µÉ¼ø ¾øÁö¸¸ ¹æ¾îÄÚµå¸¦ ³Ö´Â´Ù.
+		//ì•„ë˜ ì²˜ëŸ¼ ë ìˆœ ì—†ì§€ë§Œ ë°©ì–´ì½”ë“œë¥¼ ë„£ëŠ”ë‹¤.
 		if (regType == _REG_NONE)
 			break;
 
@@ -698,7 +698,7 @@ bool AUTO_PLAY::Is_U(std::vector<CCARD*> & myHandCards, CCARD *pDrop, AutoResult
 		myHandCards.erase(myHandCards.begin());
 	}
 	
-	//Á¶Ä¿¸¦ »©°í ¸®½ºÆ®¿¡ ´ã´Â´Ù.
+	//ì¡°ì»¤ë¥¼ ë¹¼ê³  ë¦¬ìŠ¤íŠ¸ì— ë‹´ëŠ”ë‹¤.
 	std::vector<CCARD*> noJokerCards;
 	std::vector<CCARD*> jokerCards;
 	for (int i = 0; i < (int)myHandCards.size(); i++)
@@ -718,37 +718,37 @@ bool AUTO_PLAY::Is_U(std::vector<CCARD*> & myHandCards, CCARD *pDrop, AutoResult
 		dropCardCnt++;
 	}
 	
-	//ÃÖ´ë Ä«µå¼ö´Â µå·ÓÄ«µå¸¦ Æ÷ÇÔÇÏ¿© 10Àå ÃÖ¼Ò Ä«µå¼ö´Â µå·ÓÄ«µå¸¦ »©°í 9Àå
+	//ìµœëŒ€ ì¹´ë“œìˆ˜ëŠ” ë“œë¡­ì¹´ë“œë¥¼ í¬í•¨í•˜ì—¬ 10ì¥ ìµœì†Œ ì¹´ë“œìˆ˜ëŠ” ë“œë¡­ì¹´ë“œë¥¼ ë¹¼ê³  9ì¥
 	if (totalCardCnt > MaxTotalCardCnt && totalCardCnt < MaxHandCardCnt)
 		return false;
 
-	//°ãÄ¡Áö ¾Ê°í ³ë¸»ÇÏ°Ô U°¡ µÇ´ÂÁö È®ÀÎÇÑ´Ù. CASE 1
+	//ê²¹ì¹˜ì§€ ì•Šê³  ë…¸ë§í•˜ê²Œ Uê°€ ë˜ëŠ”ì§€ í™•ì¸í•œë‹¤. CASE 1
 	std::vector<CCARD*> tempCards = myHandCards;
 	if (checkNotDuplicateCardsU(stanbyCards, stanbyCardsRegTypes, tempCards, autoResult) == true)
 		return true;
 	else
 		autoResult.Clear();
 
-	//¾Æ·¡ºÎÅÍ´Â Ä«µå°¡ °ãÄ¡´Â °æ¿ì¸¦ ¹İ¿µÇÑ UÃ£±â CASE 2
+	//ì•„ë˜ë¶€í„°ëŠ” ì¹´ë“œê°€ ê²¹ì¹˜ëŠ” ê²½ìš°ë¥¼ ë°˜ì˜í•œ Uì°¾ê¸° CASE 2
 
-	//¼¼ÀåÀ¸·Î ÀÌ·ïÁø ½ºÆ®·¹ÀÌÆ®, ¹øµé ÈÄº¸ÀÚ(Candidate) ¸®½ºÆ®¸¦ ¸¸µç´Ù.
+	//ì„¸ì¥ìœ¼ë¡œ ì´ë¤„ì§„ ìŠ¤íŠ¸ë ˆì´íŠ¸, ë²ˆë“¤ í›„ë³´ì(Candidate) ë¦¬ìŠ¤íŠ¸ë¥¼ ë§Œë“ ë‹¤.
 
-	//ÁÖÀÇ!!!!!!!!!!! ¾Æ·¡ ·çÆ¾Àº ¹İµå½Ã ¼ø¼­´ë·Î È£ÃâµÇ¾ß ÇÔ
+	//ì£¼ì˜!!!!!!!!!!! ì•„ë˜ ë£¨í‹´ì€ ë°˜ë“œì‹œ ìˆœì„œëŒ€ë¡œ í˜¸ì¶œë˜ì•¼ í•¨
 	std::vector<Candidate> candidateList;
 	makeCandidateList(noJokerCards, candidateList, pDrop, stanbyCards, stanbyCardsRegTypes);
 
 	std::vector<CandidateSet> candidateSetList;
 	makeCandidateSetList(candidateSetList, candidateList, noJokerCards);
 	
-	// À¯È¿ÇÑ µî·Ï ÈÄº¸ÀÚ 3°³ Ã£±â
+	// ìœ íš¨í•œ ë“±ë¡ í›„ë³´ì 3ê°œ ì°¾ê¸°
 	if (searchUWithoutJoker(candidateSetList, autoResult) == true)
 		return true;
 	
-	//À¯È¿ÇÑ µî·Ï ÈÄº¸ÀÚ 3°³ Ã£±â (Á¶Ä¿)
+	//ìœ íš¨í•œ ë“±ë¡ í›„ë³´ì 3ê°œ ì°¾ê¸° (ì¡°ì»¤)
 	if (searchUWithJoker(candidateSetList, jokerCards, autoResult) == true)
 		return true;
 
-	//ºÙÀÌ±â ÇØ¼­ U°¡ µÇ´ÂÁö Ã£±â
+	//ë¶™ì´ê¸° í•´ì„œ Uê°€ ë˜ëŠ”ì§€ ì°¾ê¸°
 	if (searchUWithAttach(candidateSetList, autoResult) == true)
 		return true;
 	
@@ -757,11 +757,11 @@ bool AUTO_PLAY::Is_U(std::vector<CCARD*> & myHandCards, CCARD *pDrop, AutoResult
 
 bool AUTO_PLAY::AutoRegist(std::vector<CCARD*> & myHandCards, AutoResult & autoResult)
 {
-	//Ä«µå¼ö°¡ 3ÀåÀÌ ¾ÈµÇ¸é µî·ÏÇÒ°Ô ¾øÀ¸´Ï false ¸®ÅÏ
+	//ì¹´ë“œìˆ˜ê°€ 3ì¥ì´ ì•ˆë˜ë©´ ë“±ë¡í• ê²Œ ì—†ìœ¼ë‹ˆ false ë¦¬í„´
 	if (myHandCards.size() < 3)
 		return false;
 
-	//Á¶Ä¿¸¦ »©°í ¸®½ºÆ®¿¡ ´ã´Â´Ù.
+	//ì¡°ì»¤ë¥¼ ë¹¼ê³  ë¦¬ìŠ¤íŠ¸ì— ë‹´ëŠ”ë‹¤.
 	std::vector<CCARD*> noJokerCards;
 	std::vector<CCARD*> jokerCards;
 	for (int i = 0; i < (int)myHandCards.size(); i++)
@@ -775,10 +775,10 @@ bool AUTO_PLAY::AutoRegist(std::vector<CCARD*> & myHandCards, AutoResult & autoR
 	std::vector<CCARD*> bundleCards;
 	std::vector<CCARD*> straightCards;
 
-	//ÀÚµ¿ µî·ÏÀº ¸ÕÀú Á¶Ä¿¸¦ »ç¿ëÇÏ¿© ¹øµéÀ» µî·ÏÇÏ°í ±× ´ÙÀ½ ½ºÆ®·¹ÀÌÆ®¸¦ µî·ÏÇÑ´Ù
-	//±×·¯¹Ç·Î ÃÖ¼±ÀÇ µî·ÏÀÌ µÇÁö ¾ÊÀ»¼ö ÀÖ´Ù.
+	//ìë™ ë“±ë¡ì€ ë¨¼ì € ì¡°ì»¤ë¥¼ ì‚¬ìš©í•˜ì—¬ ë²ˆë“¤ì„ ë“±ë¡í•˜ê³  ê·¸ ë‹¤ìŒ ìŠ¤íŠ¸ë ˆì´íŠ¸ë¥¼ ë“±ë¡í•œë‹¤
+	//ê·¸ëŸ¬ë¯€ë¡œ ìµœì„ ì˜ ë“±ë¡ì´ ë˜ì§€ ì•Šì„ìˆ˜ ìˆë‹¤.
 
-	//Á¶Ä¿¸¦ »ç¿ëÇÏ¿© ¹øµéÀ» ¸ğµÎ ÃßÃâÇÑ´Ù.
+	//ì¡°ì»¤ë¥¼ ì‚¬ìš©í•˜ì—¬ ë²ˆë“¤ì„ ëª¨ë‘ ì¶”ì¶œí•œë‹¤.
 	CardUtil::SortNo(noJokerCards);
 	for (int i = 0; i < (int)jokerCards.size();)
 	{
@@ -793,7 +793,7 @@ bool AUTO_PLAY::AutoRegist(std::vector<CCARD*> & myHandCards, AutoResult & autoR
 
 	}
 
-	//Á¶Ä¿¸¦ »ç¿ëÇÏ¿© ½ºÆ®·¹ÀÌÆ®¸¦ ¸ğµÎ ÃßÃâÇÑ´Ù.
+	//ì¡°ì»¤ë¥¼ ì‚¬ìš©í•˜ì—¬ ìŠ¤íŠ¸ë ˆì´íŠ¸ë¥¼ ëª¨ë‘ ì¶”ì¶œí•œë‹¤.
 	CardUtil::SortType(noJokerCards);
 	for (int i = 0; i < (int)jokerCards.size();)
 	{
@@ -807,7 +807,7 @@ bool AUTO_PLAY::AutoRegist(std::vector<CCARD*> & myHandCards, AutoResult & autoR
 			i++;
 	}
 
-	//³²Àº Ä«µå·Î ¹øµé°ú ½ºÆ®·¹ÀÌÆ® °¡Á®¿À±â
+	//ë‚¨ì€ ì¹´ë“œë¡œ ë²ˆë“¤ê³¼ ìŠ¤íŠ¸ë ˆì´íŠ¸ ê°€ì ¸ì˜¤ê¸°
 	CardUtil::SortNo(noJokerCards);
 	while (CardUtil::ExtractBundle(noJokerCards, &bundleCards) == true) {}
 
@@ -864,8 +864,8 @@ bool AUTO_PLAY::AutoAttach(std::vector<CCARD*> & myHandCards, AutoResult & autoR
 void AUTO_PLAY::makeCandidateList(std::vector<CCARD*> & noJokerCards, std::vector<Candidate> & candidateList, CCARD * dropCard,
 	std::vector<CCARD*> & myStanbyCards, std::vector<_emREG_TYPE> & myStanbyCardsRegTypes)
 {
-	//´ë±â¿­¿¡ ÀÖ´Â Ä«µåµéÀ» ÈÄº¸ÀÚ·Î ¸¸µç´Ù.
-	//´ë±â¿­¿¡ ÀÖ´Â Ä«µå¸¦ µî·ÏÇÑ Ä«µå·Î ³Ö¾îÁØ´Ù.
+	//ëŒ€ê¸°ì—´ì— ìˆëŠ” ì¹´ë“œë“¤ì„ í›„ë³´ìë¡œ ë§Œë“ ë‹¤.
+	//ëŒ€ê¸°ì—´ì— ìˆëŠ” ì¹´ë“œë¥¼ ë“±ë¡í•œ ì¹´ë“œë¡œ ë„£ì–´ì¤€ë‹¤.
 	for (int i = 0; i < (int)myStanbyCardsRegTypes.size(); i++)
 	{
 		Candidate candidate;
@@ -878,7 +878,7 @@ void AUTO_PLAY::makeCandidateList(std::vector<CCARD*> & noJokerCards, std::vecto
 		candidateList.push_back(candidate);
 	}
 
-	//½ºÆ®·¹ÀÌÆ® ÈÄº¸ÀÚ ¸¸µé±â
+	//ìŠ¤íŠ¸ë ˆì´íŠ¸ í›„ë³´ì ë§Œë“¤ê¸°
 	CardUtil::SortType(noJokerCards);
 
 	for (int i = 0; i < (int)noJokerCards.size() - 2; i++)
@@ -896,17 +896,17 @@ void AUTO_PLAY::makeCandidateList(std::vector<CCARD*> & noJokerCards, std::vecto
 		}
 	}
 
-	//¹øµé ÈÄº¸ÀÚ ¸¸µé±â
+	//ë²ˆë“¤ í›„ë³´ì ë§Œë“¤ê¸°
 	CardUtil::SortNo(noJokerCards);
 
-	//ÁÖÀÇ!! i°¡ for¹® ¾È¿¡¼­ ÀÚµ¿À¸·Î Áõ°¡ ÇÏÁö ¾Ê´Â´Ù.
+	//ì£¼ì˜!! iê°€ forë¬¸ ì•ˆì—ì„œ ìë™ìœ¼ë¡œ ì¦ê°€ í•˜ì§€ ì•ŠëŠ”ë‹¤.
 	for (int i = 0; i < (int)noJokerCards.size() - 2;)
 	{
-		//°°Àº ¼ıÀÚ°¡ 4°³ÀÎ ¹øµéÀÏ¶§
+		//ê°™ì€ ìˆ«ìê°€ 4ê°œì¸ ë²ˆë“¤ì¼ë•Œ
 		if (i < (int) noJokerCards.size() - 3 &&
 			CardUtil::MakeBundle(noJokerCards[i], noJokerCards[i + 1], noJokerCards[i + 2], noJokerCards[i + 3]) == true)
 		{
-			//°°Àº¼ıÀÚ°¡ 4°³ÀÎ ¹øµéÀº ÃÑ Á¶ÇÕÀÌ ³×°¡Áö°¡ ³ª¿Â´Ù. ³×°¡Áö Á¶ÇÕÀ» °¡Á®¿À±â À§ÇØ ¿øÇüÅ¥Ã³·³ ¾Æ·¡¿Í °°ÀÌ ¸¸µé¾ú´Ù.
+			//ê°™ì€ìˆ«ìê°€ 4ê°œì¸ ë²ˆë“¤ì€ ì´ ì¡°í•©ì´ ë„¤ê°€ì§€ê°€ ë‚˜ì˜¨ë‹¤. ë„¤ê°€ì§€ ì¡°í•©ì„ ê°€ì ¸ì˜¤ê¸° ìœ„í•´ ì›í˜•íì²˜ëŸ¼ ì•„ë˜ì™€ ê°™ì´ ë§Œë“¤ì—ˆë‹¤.
 
 			int cicularIndex = 0;
 			for (int j = 0; j < MaxBundleCardCnt; j++)
@@ -924,11 +924,11 @@ void AUTO_PLAY::makeCandidateList(std::vector<CCARD*> & noJokerCards, std::vecto
 				candidateList.push_back(candidate);
 			}
 			
-			//4°³ÀÇ Ä«µå´Â ÀÌ¹Ì ´Ù »ç¿ëÇÏ¿´±â¿¡ i¸¦ ±× ´ÙÀ½ ÀÎµ¦½º·Î Á¡ÇÁ ½ÃÅ²´Ù.
+			//4ê°œì˜ ì¹´ë“œëŠ” ì´ë¯¸ ë‹¤ ì‚¬ìš©í•˜ì˜€ê¸°ì— ië¥¼ ê·¸ ë‹¤ìŒ ì¸ë±ìŠ¤ë¡œ ì í”„ ì‹œí‚¨ë‹¤.
 			i = i + MaxBundleCardCnt;
 			continue;
 		}
-		else if (CardUtil::MakeBundle(noJokerCards[i], noJokerCards[i + 1], noJokerCards[i + 2]) == true) //°°Àº ¼ıÀÚ°¡ 3°³ÀÎ ¹øµéÀÏ¶§
+		else if (CardUtil::MakeBundle(noJokerCards[i], noJokerCards[i + 1], noJokerCards[i + 2]) == true) //ê°™ì€ ìˆ«ìê°€ 3ê°œì¸ ë²ˆë“¤ì¼ë•Œ
 		{
 			Candidate candidate;
 			candidate.RegType = _BUNDLE;
@@ -939,7 +939,7 @@ void AUTO_PLAY::makeCandidateList(std::vector<CCARD*> & noJokerCards, std::vecto
 			candidate.MakeCardInfo();
 			candidateList.push_back(candidate);
 
-			//3°³ÀÇ Ä«µå´Â ÀÌ¹Ì ´Ù »ç¿ëÇÏ¿´±â¿¡ i¸¦ ±× ´ÙÀ½ ÀÎµ¦½º·Î Á¡ÇÁ ½ÃÅ²´Ù.
+			//3ê°œì˜ ì¹´ë“œëŠ” ì´ë¯¸ ë‹¤ ì‚¬ìš©í•˜ì˜€ê¸°ì— ië¥¼ ê·¸ ë‹¤ìŒ ì¸ë±ìŠ¤ë¡œ ì í”„ ì‹œí‚¨ë‹¤.
 			i = i + MinBundleCardCnt;
 			continue;
 		}
@@ -956,19 +956,19 @@ int factorial(int n)
 void AUTO_PLAY::makeCandidateSetList(std::vector<CandidateSet> & candidateSetList, 
 	std::vector<Candidate> & candidateList, std::vector<CCARD*> & noJokerCards)
 {
-	//U°¡ µÇ±â À§ÇØ¼­ ¸¸µé¾îÁ®¾ß ÇÏ´Â µî·Ï ¼¼Æ® ¼ö
+	//Uê°€ ë˜ê¸° ìœ„í•´ì„œ ë§Œë“¤ì–´ì ¸ì•¼ í•˜ëŠ” ë“±ë¡ ì„¸íŠ¸ ìˆ˜
 	static int uRegCnt = 3;
 
 	CandidateSet candidateSet;
 	
 	if (candidateList.size() >= 3)
 	{
-		//n!/r!(n - r)! **** 5!/3!2! ****  5°³Áß 3°³¾¿ ¼ø¼­¿Í »ó°ü¾ø´Â Á¶ÇÕÀÇ °æ¿ìÀÇ¼ö
-		//ÈÄº¸ÀÚ ¸®½ºÆ®¿¡¼­ µî·Ï°¡´ÉÇÑ ÈÄº¸ÀÚ ¼¼Æ®¸¦ ¸¸µç´Ù.
+		//n!/r!(n - r)! **** 5!/3!2! ****  5ê°œì¤‘ 3ê°œì”© ìˆœì„œì™€ ìƒê´€ì—†ëŠ” ì¡°í•©ì˜ ê²½ìš°ì˜ìˆ˜
+		//í›„ë³´ì ë¦¬ìŠ¤íŠ¸ì—ì„œ ë“±ë¡ê°€ëŠ¥í•œ í›„ë³´ì ì„¸íŠ¸ë¥¼ ë§Œë“ ë‹¤.
 		int candidateSetListSize = factorial(candidateList.size()) / (factorial(uRegCnt) * factorial(candidateList.size() - uRegCnt));
 		if (candidateSetListSize < 1) candidateSetListSize = 1;
 
-		//3°³¾¿ »Ì¾Æ¼­ 6°¡ÁöÀÇ ¼ø¼­¸¦ ¹Ù²ã¼­ candidateSetÀ» ¸¸µé¾î¾ß ÇÏ±â ¶§¹®¿¡ 6À» °öÇØÁØ´Ù.
+		//3ê°œì”© ë½‘ì•„ì„œ 6ê°€ì§€ì˜ ìˆœì„œë¥¼ ë°”ê¿”ì„œ candidateSetì„ ë§Œë“¤ì–´ì•¼ í•˜ê¸° ë•Œë¬¸ì— 6ì„ ê³±í•´ì¤€ë‹¤.
 		candidateSetListSize = candidateSetListSize * 6;
 		candidateSetList.reserve(candidateSetListSize);
 
@@ -1047,7 +1047,7 @@ void AUTO_PLAY::makeCandidateSetList(std::vector<CandidateSet> & candidateSetLis
 		}
 	}
 
-	//Áßº¹ candidateset Á¦°Å
+	//ì¤‘ë³µ candidateset ì œê±°
 	for (int i = 0; i < (int)candidateSetList.size(); i++)
 	{
 		for (int j = i + 1; j < (int)candidateSetList.size();)
@@ -1067,7 +1067,7 @@ void AUTO_PLAY::makeCandidateSetList(std::vector<CandidateSet> & candidateSetLis
 
 bool AUTO_PLAY::searchUWithoutJoker(std::vector<CandidateSet> & candidateSetList, AutoResult & autoResult)
 {
-	//°ãÄ¡Áö ¾Ê´Â µî·Ï ÈÄº¸ÀÚ ¼¼°³°¡ ÀÖ¾î¾ß ÇÑ´Ù.
+	//ê²¹ì¹˜ì§€ ì•ŠëŠ” ë“±ë¡ í›„ë³´ì ì„¸ê°œê°€ ìˆì–´ì•¼ í•œë‹¤.
 	for (int i = 0; i < (int)candidateSetList.size(); i++)
 	{
 		if (candidateSetList[i].CanRegisterAll() == true)
@@ -1084,7 +1084,7 @@ bool AUTO_PLAY::searchUWithoutJoker(std::vector<CandidateSet> & candidateSetList
 bool AUTO_PLAY::searchUWithJoker(std::vector<CandidateSet> & candidateSetList, std::vector<CCARD*> & jokerCards,
 	AutoResult & autoResult)
 {
-	//Á¶Ä¿¼ıÀÚ¸¦ Àû¿ëÇÏ¿© µî·Ï ÈÄº¸ÀÚ ¼¼°³°¡ µÇ´ÂÁö È®ÀÎ
+	//ì¡°ì»¤ìˆ«ìë¥¼ ì ìš©í•˜ì—¬ ë“±ë¡ í›„ë³´ì ì„¸ê°œê°€ ë˜ëŠ”ì§€ í™•ì¸
 	for (int i = 0; i < (int)candidateSetList.size(); i++)
 	{
 		if (candidateSetList[i].CanRegisterAllWithJoker(jokerCards) == true)
@@ -1099,7 +1099,7 @@ bool AUTO_PLAY::searchUWithJoker(std::vector<CandidateSet> & candidateSetList, s
 
 bool AUTO_PLAY::searchUWithAttach(std::vector<CandidateSet> & candidateSetList, AutoResult & autoResult)
 {
-	//µî·Ï°ú ºÙÀÌ±â°¡ ¸ğµÎ ÇÕÃÄ¼­ 9ÀåÀÌ¸é U
+	//ë“±ë¡ê³¼ ë¶™ì´ê¸°ê°€ ëª¨ë‘ í•©ì³ì„œ 9ì¥ì´ë©´ U
 	for (int i = 0; i < (int)candidateSetList.size(); i++)
 	{
 		if (candidateSetList[i].CanRegisterAndAttachNineCards(_regStraight, _regBundle) == true)
@@ -1152,11 +1152,11 @@ int AUTO_PLAY::getBundleCount(std::vector<CCARD*> & regCards, AutoResult & autoR
 void AUTO_PLAY::searchBestCandidateSet(std::vector<CandidateSet> & candidateSetList, 
 	std::vector<CCARD*> & jokerCards, AutoResult & autoResult)
 {
-	//¸ğµç CadidateSet¿¡ Á¶Ä¿¸¦ Àû¿ëÇÑ´Ù.
+	//ëª¨ë“  CadidateSetì— ì¡°ì»¤ë¥¼ ì ìš©í•œë‹¤.
 	for (int i = 0; i < (int)candidateSetList.size(); i++)
 		candidateSetList[i].CanRegisterAllWithJoker(jokerCards);
 
-	//µî·Ï°ú ºÙÀÌ±â°¡ ¸ğµÎ ÇÕÃÄ¼­ 9ÀåÀÌ¸é U
+	//ë“±ë¡ê³¼ ë¶™ì´ê¸°ê°€ ëª¨ë‘ í•©ì³ì„œ 9ì¥ì´ë©´ U
 	for (int i = 0; i < (int)candidateSetList.size(); i++)
 		candidateSetList[i].CanRegisterAndAttachNineCards(_regStraight, _regBundle);
 
@@ -1240,15 +1240,15 @@ bool AUTO_PLAY::BestRegist(std::vector<CCARD*> & myHandCards, AutoResult & autoR
 		CCARD * secondCard = myHandCards[1];
 		CCARD * thirdCard = myHandCards[2];
 
-		//´ë±â¿­ Ä«µå°¡ ¸ÕÀú µé¾îÀÖ´Ù°í °¡Á¤ÇÔ (±×·¸°Ô ÄÚµùµÇ¾î ÀÖÀ½)
+		//ëŒ€ê¸°ì—´ ì¹´ë“œê°€ ë¨¼ì € ë“¤ì–´ìˆë‹¤ê³  ê°€ì •í•¨ (ê·¸ë ‡ê²Œ ì½”ë”©ë˜ì–´ ìˆìŒ)
 
-		//Ä«µå ¼¼ÀåÁß¿¡ ÇÑÀåÀÌ¶óµµ ¹ö¸°Ä«µå°¡ ÀÖ´Ù¸é ±×°Ç ´ë±â¿­ Ä«µåÀÌ´Ù.
+		//ì¹´ë“œ ì„¸ì¥ì¤‘ì— í•œì¥ì´ë¼ë„ ë²„ë¦°ì¹´ë“œê°€ ìˆë‹¤ë©´ ê·¸ê±´ ëŒ€ê¸°ì—´ ì¹´ë“œì´ë‹¤.
 		if (firstCard->m_emCardPos != _DROP && secondCard->m_emCardPos != _DROP && thirdCard->m_emCardPos != _DROP)
 			break;
 
 		_emREG_TYPE regType = CardUtil::CheckStraightOrBundle(firstCard, secondCard, thirdCard);
 
-		//¾Æ·¡ Ã³·³ µÉ¼ø ¾øÁö¸¸ ¹æ¾îÄÚµå¸¦ ³Ö´Â´Ù.
+		//ì•„ë˜ ì²˜ëŸ¼ ë ìˆœ ì—†ì§€ë§Œ ë°©ì–´ì½”ë“œë¥¼ ë„£ëŠ”ë‹¤.
 		if (regType == _REG_NONE)
 			break;
 
@@ -1262,7 +1262,7 @@ bool AUTO_PLAY::BestRegist(std::vector<CCARD*> & myHandCards, AutoResult & autoR
 		myHandCards.erase(myHandCards.begin());
 	}
 
-	//Á¶Ä¿¸¦ »©°í ¸®½ºÆ®¿¡ ´ã´Â´Ù.
+	//ì¡°ì»¤ë¥¼ ë¹¼ê³  ë¦¬ìŠ¤íŠ¸ì— ë‹´ëŠ”ë‹¤.
 	std::vector<CCARD*> noJokerCards;
 	std::vector<CCARD*> jokerCards;
 	for (int i = 0; i < (int)myHandCards.size(); i++)
@@ -1273,15 +1273,15 @@ bool AUTO_PLAY::BestRegist(std::vector<CCARD*> & myHandCards, AutoResult & autoR
 			jokerCards.push_back(myHandCards[i]);
 	}
 
-	//ÁÖÀÇ!!!!!!!!!!! ¾Æ·¡ ·çÆ¾Àº ¹İµå½Ã ¼ø¼­´ë·Î È£ÃâµÇ¾ß ÇÔ
-	//¼¼ÀåÀ¸·Î ÀÌ·ïÁø ½ºÆ®·¹ÀÌÆ®, ¹øµé ÈÄº¸ÀÚ(Candidate) ¸®½ºÆ®¸¦ ¸¸µç´Ù.
+	//ì£¼ì˜!!!!!!!!!!! ì•„ë˜ ë£¨í‹´ì€ ë°˜ë“œì‹œ ìˆœì„œëŒ€ë¡œ í˜¸ì¶œë˜ì•¼ í•¨
+	//ì„¸ì¥ìœ¼ë¡œ ì´ë¤„ì§„ ìŠ¤íŠ¸ë ˆì´íŠ¸, ë²ˆë“¤ í›„ë³´ì(Candidate) ë¦¬ìŠ¤íŠ¸ë¥¼ ë§Œë“ ë‹¤.
 	std::vector<Candidate> candidateList;
 	makeCandidateList(noJokerCards, candidateList, NULL, stanbyCards, stanbyCardsRegTypes);
 
 	std::vector<CandidateSet> candidateSetList;
 	makeCandidateSetList(candidateSetList, candidateList, noJokerCards);
 
-	//µî·Ï¹× ºÙÀÌ±â·Î  CandidateSetÀ» Ã£´Â´Ù.
+	//ë“±ë¡ë° ë¶™ì´ê¸°ë¡œ  CandidateSetì„ ì°¾ëŠ”ë‹¤.
 	searchBestCandidateSet(candidateSetList, jokerCards, autoResult);
 
 	return true;
@@ -1296,7 +1296,7 @@ bool AUTO_PLAY::checkRegistStraight(std::vector<CCARD*> & pvtTemp)
 
 	int jokboCount = (int)pvtTemp.size() / jokboCardCount;
 
-	//µî·ÏÄ«µåÀÇ Àå¼ö´Â 3ÀÇ ¹è¼ö¿©¾ß ÇÑ´Ù.
+	//ë“±ë¡ì¹´ë“œì˜ ì¥ìˆ˜ëŠ” 3ì˜ ë°°ìˆ˜ì—¬ì•¼ í•œë‹¤.
 	if (pvtTemp.size() % jokboCardCount != 0)
 		return false;
 
@@ -1318,7 +1318,7 @@ bool AUTO_PLAY::checkRegistBundle(std::vector<CCARD*> & pvtTemp)
 
 	int jokboCount = (int)pvtTemp.size() / jokboCardCount;
 
-	//µî·ÏÄ«µåÀÇ Àå¼ö´Â 3ÀÇ ¹è¼ö¿©¾ß ÇÑ´Ù.
+	//ë“±ë¡ì¹´ë“œì˜ ì¥ìˆ˜ëŠ” 3ì˜ ë°°ìˆ˜ì—¬ì•¼ í•œë‹¤.
 	if (pvtTemp.size() % jokboCardCount != 0)
 		return false;
 
@@ -1336,7 +1336,7 @@ bool AUTO_PLAY::checkNotDuplicateCardsU(std::vector<CCARD*> & myStanbyCards, std
 	if (myStanbyCards.size() + myHandCards.size() < AUTO_PLAY::MinUCardCnt)
 		return false;
 
-	//Á¶Ä¿¸¦ »©°í ¸®½ºÆ®¿¡ ´ã´Â´Ù.
+	//ì¡°ì»¤ë¥¼ ë¹¼ê³  ë¦¬ìŠ¤íŠ¸ì— ë‹´ëŠ”ë‹¤.
 	std::vector<CCARD*> noJokerCards;
 	std::vector<CCARD*> jokerCards;
 	for (int i = 0; i < (int)myHandCards.size(); i++)
@@ -1352,7 +1352,7 @@ bool AUTO_PLAY::checkNotDuplicateCardsU(std::vector<CCARD*> & myStanbyCards, std
 	std::vector<CCARD*> bundleCards;
 	std::vector<CCARD*> straightCards;
 
-	//´ë±â¿­¿¡ ÀÖ´Â Ä«µå¸¦ µî·ÏÇÑ Ä«µå·Î ³Ö¾îÁØ´Ù.
+	//ëŒ€ê¸°ì—´ì— ìˆëŠ” ì¹´ë“œë¥¼ ë“±ë¡í•œ ì¹´ë“œë¡œ ë„£ì–´ì¤€ë‹¤.
 	for (int i = 0; i < (int)myStanbyCardsRegTypes.size(); i++)
 	{
 		if (myStanbyCardsRegTypes[i] == _STRAIGHT)
@@ -1369,7 +1369,7 @@ bool AUTO_PLAY::checkNotDuplicateCardsU(std::vector<CCARD*> & myStanbyCards, std
 		}
 	}
 
-	//Á¶Ä¿ ¾øÀÌ ¹øµé°ú ½ºÆ®·¹ÀÌÆ® °¡Á®¿À±â
+	//ì¡°ì»¤ ì—†ì´ ë²ˆë“¤ê³¼ ìŠ¤íŠ¸ë ˆì´íŠ¸ ê°€ì ¸ì˜¤ê¸°
 	CardUtil::SortType(noJokerCards);
 	while (CardUtil::ExtractStraight(noJokerCards, &straightCards) == true) {}
 
@@ -1379,7 +1379,7 @@ bool AUTO_PLAY::checkNotDuplicateCardsU(std::vector<CCARD*> & myStanbyCards, std
 	std::vector<int> backupJokerTypes;
 	std::vector<int> backupJokerNos;
 
-	//Á¶Ä¿¸¦ »ç¿ëÇÏ¿© ½ºÆ®·¹ÀÌÆ®¸¦ ¸ğµÎ ÃßÃâÇÑ´Ù.
+	//ì¡°ì»¤ë¥¼ ì‚¬ìš©í•˜ì—¬ ìŠ¤íŠ¸ë ˆì´íŠ¸ë¥¼ ëª¨ë‘ ì¶”ì¶œí•œë‹¤.
 	CardUtil::SortType(noJokerCards);
 	for (int i = 0; i < (int)jokerCards.size();)
 	{
@@ -1397,7 +1397,7 @@ bool AUTO_PLAY::checkNotDuplicateCardsU(std::vector<CCARD*> & myStanbyCards, std
 			i++;
 	}
 	
-	//Á¶Ä¿¸¦ »ç¿ëÇÏ¿© ¹øµéÀ» ¸ğµÎ ÃßÃâÇÑ´Ù.
+	//ì¡°ì»¤ë¥¼ ì‚¬ìš©í•˜ì—¬ ë²ˆë“¤ì„ ëª¨ë‘ ì¶”ì¶œí•œë‹¤.
 	CardUtil::SortNo(noJokerCards);
 	for (int i = 0; i < (int)jokerCards.size();)
 	{
@@ -1429,10 +1429,10 @@ bool AUTO_PLAY::checkNotDuplicateCardsU(std::vector<CCARD*> & myStanbyCards, std
 		result = true;
 	}
 
-	//³²Àº Ä«µå´Â ºÙ¿© ÁØ´Ù.
+	//ë‚¨ì€ ì¹´ë“œëŠ” ë¶™ì—¬ ì¤€ë‹¤.
 	AutoAttach(noJokerCards, autoResult, bundleCards, straightCards);
 
-	//³²Àº Ä«µå¸¦ °á°ú¿¡ ³Ö¾îÁØ´Ù.
+	//ë‚¨ì€ ì¹´ë“œë¥¼ ê²°ê³¼ì— ë„£ì–´ì¤€ë‹¤.
 	for (int i = 0; i < (int)noJokerCards.size(); i++)
 		autoResult.TrashCards.push_back(noJokerCards[i]);
 
@@ -1442,8 +1442,8 @@ bool AUTO_PLAY::checkNotDuplicateCardsU(std::vector<CCARD*> & myStanbyCards, std
 	}
 	else
 	{
-		//U°¡ µÇÁö ¾Ê´Â´Ù¸é Á¶Ä¿µéÀÇ »óÅÂ¸¦ ¿ø·¡´ë·Î µ¹·Á³õ´Â´Ù.
-		//JokerType°ú no¸¦ ¿ø·¡´ë·Î µ¹·ÁÁØ´Ù.
+		//Uê°€ ë˜ì§€ ì•ŠëŠ”ë‹¤ë©´ ì¡°ì»¤ë“¤ì˜ ìƒíƒœë¥¼ ì›ë˜ëŒ€ë¡œ ëŒë ¤ë†“ëŠ”ë‹¤.
+		//JokerTypeê³¼ noë¥¼ ì›ë˜ëŒ€ë¡œ ëŒë ¤ì¤€ë‹¤.
 		for (int i = 0; i < (int)backupJokerTypes.size(); i++)
 		{
 			backupJokerCards[i]->m_nJokerType = backupJokerTypes[i];

@@ -132,7 +132,7 @@ public:
 		StepBase * step = new StepBase(sender, -1, std::string(""), stepTime, gameStep);
 		step->SetCalcNextStepOperation(std::function<GAME_STEP()>([step]()
 		{
-			//È£ÃâµÇ¼­´Â ¾ÈµÊ
+			//í˜¸ì¶œë˜ì„œëŠ” ì•ˆë¨
 			std::string gameStepName = "Not Regitster NextStepOperation StepName : ";
 			gameStepName += GetStringGAME_STEP(step->GetMyStep());
 			ASSERT(gameStepName.c_str() == 0);
@@ -147,7 +147,7 @@ public:
 		StepBase * step = new StepBase(sender, -1, std::string(""), stepTime, gameStep, clientTime);
 		step->SetCalcNextStepOperation(std::function<GAME_STEP()>([step]()
 		{
-			//È£ÃâµÇ¼­´Â ¾ÈµÊ
+			//í˜¸ì¶œë˜ì„œëŠ” ì•ˆë¨
 			std::string gameStepName = "Not Regitster NextStepOperation StepName : ";
 			gameStepName += GetStringGAME_STEP(step->GetMyStep());
 			ASSERT(gameStepName.c_str() == 0);
